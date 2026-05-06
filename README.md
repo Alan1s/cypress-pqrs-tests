@@ -84,7 +84,7 @@ El módulo PQRS permite a usuarios no autenticados registrar solicitudes de tipo
 | **Resultado Esperado** | El sistema bloquea el envío y muestra un mensaje de error indicando que debe ingresar un nombre válido. |
 | **Resultado Obtenido** | El sistema envía la solicitud exitosamente, genera número de radicado y no presenta mensajes de error. |
 | **Severidad** | 🟠 Media |
-| **Evidencia** | *(pendiente adjuntar captura)* |
+| **Evidencia** | Captura en el Word |
 
 ---
 
@@ -99,7 +99,7 @@ El módulo PQRS permite a usuarios no autenticados registrar solicitudes de tipo
 | **Resultado Esperado** | El sistema envía la solicitud exitosamente y genera número de radicado. *(Esperado según la ausencia de indicador obligatorio)* |
 | **Resultado Obtenido** | El sistema bloquea el envío con el mensaje: *"Su solicitud no ha sido procesada. Para radicar el caso debe aceptar los términos y condiciones."* |
 | **Severidad** | 🟠 Media |
-| **Evidencia** | *(pendiente adjuntar captura)* |
+| **Evidencia** | Captura en el Word |
 
 ---
 
