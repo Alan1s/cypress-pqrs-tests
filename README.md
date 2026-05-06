@@ -16,7 +16,7 @@ El módulo PQRS permite a usuarios no autenticados registrar solicitudes de tipo
 | Campo | Detalle |
 |---|---|
 | **Descripción** | Verificar que el sistema permite el envío exitoso de una solicitud PQRS cuando todos los campos obligatorios son diligenciados correctamente, incluyendo la aceptación del tratamiento de datos personales y validación de reCAPTCHA. |
-| **Given** | El usuario está en el módulo de PQRS. El formulario se encuentra disponible para su diligenciamiento. |
+| **Given** | El usuario está en el módulo de PQRS [https://www.epssura.com/escribenos](https://www.epssura.com/escribenos). El formulario se encuentra disponible para su diligenciamiento. |
 | **When** | El usuario completa los datos requeridos: tipo de comentario: QUEJA · causa: SOLICITAR Y CANCELAR CITAS · medio de respuesta: CORREO ELECTRÓNICO · TI: CÉDULA · CC: 1234567890 · nombres: Papaíto Prueba · apellido: Gpt Prueba · correo: papaitogpt@gmail.com · ciudad: BOGOTÁ D.C. · comentarios: "No me fue posible agendar la cita acordada con mi médico." Marca la casilla de tratamiento de datos personales, completa el reCAPTCHA y hace clic en "Enviar". |
 | **Then** | El sistema envía la solicitud exitosamente, redirige a una ventana con mensaje de aprobación, genera número de radicado y no presenta mensajes de error. |
 | **Prioridad** | 🔴 ALTA |
@@ -28,7 +28,7 @@ El módulo PQRS permite a usuarios no autenticados registrar solicitudes de tipo
 | Campo | Detalle |
 |---|---|
 | **Descripción** | Verificar que el sistema permite cargar un archivo válido en el formulario PQRS y lo muestra correctamente para su gestión. |
-| **Given** | El usuario está en el módulo de PQRS. La opción de anexar archivos se encuentra disponible. |
+| **Given** | El usuario está en el módulo de PQRS [https://www.epssura.com/escribenos](https://www.epssura.com/escribenos). La opción de anexar archivos se encuentra disponible. |
 | **When** | El usuario hace clic en "clic aquí" → se abre la ventana de carga → hace clic en "Seleccionar archivo" → selecciona un archivo → hace clic en "Adjuntar archivo". |
 | **Then** | El sistema carga el archivo, se visualiza el nombre en pantalla, permite la opción de eliminar el archivo adjunto y no presenta mensajes de error. |
 | **Prioridad** | 🔴 ALTA |
@@ -40,8 +40,8 @@ El módulo PQRS permite a usuarios no autenticados registrar solicitudes de tipo
 | Campo | Detalle |
 |---|---|
 | **Descripción** | Verificar que el sistema no permite enviar una solicitud PQRS cuando el usuario no acepta el tratamiento de datos personales. |
-| **Given** | El usuario está en el módulo de PQRS. La opción de autorización de datos personales se encuentra disponible. |
-| **When** | El usuario completa todos los campos obligatorios con datos válidos, **NO** hace clic en la opción "Autorizo el tratamiento de mis datos" y hace clic en "Enviar". |
+| **Given** | El usuario está en el módulo de PQRS [https://www.epssura.com/escribenos](https://www.epssura.com/escribenos). La opción de autorización de datos personales se encuentra disponible. |
+| **When** | El usuario completa todos los campos obligatorios con datos válidos, **NO** hace clic en la opción "Autorizo el tratamiento de mis datos de acuerdo con la Politica de tratamiento de datos personales" y hace clic en "Enviar". |
 | **Then** | El sistema bloquea el envío, presenta un mensaje de error indicando la falta de autorización de datos personales y el usuario permanece en la página de "escríbenos". |
 | **Prioridad** | 🔴 ALTA |
 
@@ -81,8 +81,8 @@ El módulo PQRS permite a usuarios no autenticados registrar solicitudes de tipo
 | **Título** | Validación incorrecta en el campo "¿Cómo te llamas?" permite números |
 | **Descripción** | Al enviar el formulario con el nombre compuesto solo por números, el formulario no se bloquea y permite realizar la solicitud, entregando número de radicado y mensaje de envío exitoso. |
 | **Pasos para reproducir** | 1. Ir a [https://www.epssura.com/escribenos](https://www.epssura.com/escribenos) <br>2. Completar el formulario con: tipo: QUEJA · causa: SOLICITAR Y CANCELAR CITAS · medio: CORREO ELECTRÓNICO · TI: CÉDULA · CC: 1234567890 · **Primer nombre: 12345** · **Segundo nombre: 6789** · Apellido: Gpt Prueba · correo: papaitogpt@gmail.com · ciudad: BOGOTÁ D.C. · comentarios: "No me fue posible agendar la cita acordada con mi médico."<br>3. Marcar la casilla de tratamiento de datos personales<br>4. Completar el reCAPTCHA<br>5. Hacer clic en "Enviar" |
-| **Resultado Esperado** | El sistema bloquea el envío y muestra un mensaje de error indicando que debe ingresar un nombre válido. |
-| **Resultado Obtenido** | El sistema envía la solicitud exitosamente, genera número de radicado y no presenta mensajes de error. |
+| **Resultado Esperado** | Bloqueo del sistema, presentando un mensaje de error indicando que debe ingresar un nombre válido dentro de los campos “¿Cómo te llamas?” |
+| **Resultado Obtenido** | El sistema envía la solicitud de manera exitosa, redirige a una ventana donde muestra un mensaje de envío de solicitud o de aprobación, genera un número de radicado, no presenta mensajes de error. |
 | **Severidad** | 🟠 Media |
 | **Evidencia** | Captura en el Word |
 
@@ -96,7 +96,7 @@ El módulo PQRS permite a usuarios no autenticados registrar solicitudes de tipo
 | **Título** | Falta de indicación visual de obligatoriedad en autorización de datos personales |
 | **Descripción** | La casilla de autorización de tratamiento de datos personales no se muestra como obligatoria (no presenta asterisco u otro indicador visual). Sin embargo, el sistema exige su aceptación para el envío, generando inconsistencia y posible confusión para el usuario. |
 | **Pasos para reproducir** | 1. Ir a [https://www.epssura.com/escribenos](https://www.epssura.com/escribenos) <br>2. Completar todos los campos obligatorios con datos válidos<br>3. **NO marcar** la casilla de autorización de datos personales<br>4. Completar el reCAPTCHA<br>5. Hacer clic en "Enviar" |
-| **Resultado Esperado** | El sistema envía la solicitud exitosamente y genera número de radicado. *(Esperado según la ausencia de indicador obligatorio)* |
+| **Resultado Esperado** | El sistema envía la solicitud de manera exitosa, redirige a una ventana donde muestra un mensaje de envío de solicitud o de aprobación, genera un número de radicado, no presenta mensajes de error.*(Esperado según la ausencia de indicador obligatorio)* |
 | **Resultado Obtenido** | El sistema bloquea el envío con el mensaje: *"Su solicitud no ha sido procesada. Para radicar el caso debe aceptar los términos y condiciones."* |
 | **Severidad** | 🟠 Media |
 | **Evidencia** | Captura en el Word |
@@ -113,11 +113,10 @@ El test tiene como objetivo validar la navegación hacia el módulo de PQRS dent
 
 ### ¿En qué parte de la prueba se usó inteligencia artificial?
 
-Se utilizaron distintas herramientas de IA como apoyo durante el desarrollo:
-
-- **ChatGPT** – Para mejorar la redacción de ideas, estructurar los objetivos del test y reforzar conceptos de Cypress.
-- **Claude AI** – Para generar guías de estudio sobre temas con vacíos de conocimiento en QA y testing.
-- **GitHub Copilot** – Como apoyo dentro de Visual Studio Code para agilizar la escritura de comentarios y funciones básicas.
+Hice uso de distintas herramientas de inteligencia artificial como apoyo durante el desarrollo de la prueba.
+Utilicé ChatGPT como asistente para mejorar la redacción de ideas, estructurar los objetivos del test y reforzar conceptos aprendidos en cursos y documentación de Cypress.
+También empleé Claude AI para generar guías de estudio sobre temas en los que tenía vacíos de conocimiento en QA y testing.
+Finalmente, utilicé GitHub Copilot como apoyo dentro de Visual Studio Code para agilizar la escritura de comentarios y funciones básicas.
 
 ### ¿Qué se hizo directamente (criterio humano)?
 
